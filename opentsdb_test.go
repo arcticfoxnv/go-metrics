@@ -7,7 +7,7 @@ import (
 
 func ExampleOpenTSDB() {
 	addr, _ := net.ResolveTCPAddr("net", ":2003")
-	go OpenTSDB(DefaultRegistry, 1*time.Second, "some.prefix", addr)
+	go OpenTSDB(DefaultRegistry, 1*time.Second, "some.prefix", addr, nil)
 }
 
 func ExampleOpenTSDBWithConfig() {
@@ -17,5 +17,6 @@ func ExampleOpenTSDBWithConfig() {
 		Registry:      DefaultRegistry,
 		FlushInterval: 1 * time.Second,
 		DurationUnit:  time.Millisecond,
+		Tags:          nil,
 	})
 }
